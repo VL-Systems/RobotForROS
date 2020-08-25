@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    
+    <!-- global params-->
+    <arg name="robot" default="mybot"/>
+  
+    <!-- URDF description -->
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/>
+    
+    
+    <!-- TF stuff -->
+        <!-- send fake joint values -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="False"/>
+    </node>
+
+        <!-- Combine joint values -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+    
+        <!-- fixed odom -->
+    <node pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
+        args="0 0 0 0 0 0 map odom 100"/>    
+    
+    <!-- run gazebo and spawn mybot -->
+    <include file="$(find mybot_gazebo)/launch/mybot_world.launch"/>
+    
+    
+    <!-- software -->
+    <include file="$(find mybot_config)/launch/mybot_software.launch"/>
+    
+    <!-- visualization -->      
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mybot_config)/rviz/myrobot_gazebo.rviz"/>    
+    
+</launch>

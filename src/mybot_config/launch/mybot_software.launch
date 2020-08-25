@@ -1,0 +1,5 @@
+<launch>
+    
+    <include file="$(find mybot_2dnav)/launch/mybot_move_base.launch"/>
+    
+</launch>
