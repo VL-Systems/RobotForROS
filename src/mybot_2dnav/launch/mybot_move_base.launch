@@ -1,8 +1,10 @@
 <launch>
    
     <!-- Run the map server --> 
-    <node name="map_server" pkg="map_server" type="map_server" args="$(find mybot_2dnav)/config/map_empty.yaml"/>
+    <!--<node name="map_server" pkg="map_server" type="map_server" args="$(find mybot_2dnav)/config/map_empty.yaml"/>-->
 
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find chris_world_models)/maps/creech_map.yaml"/>
+    
     <!--- Run AMCL --> 
     <!--<include file="$(find amcl)/examples/amcl_omni.launch" />-->
 
