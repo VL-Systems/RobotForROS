@@ -1,5 +1,7 @@
 <launch>
     
-    <include file="$(find mybot_2dnav)/launch/mybot_move_base.launch"/>
+    <arg name="robot" default="mybot"/>
+    
+    <include file="$(find mybot_2dnav)/launch/mybot_move_base.launch" ns="$(arg robot)"/>
     
 </launch>
