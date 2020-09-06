@@ -23,7 +23,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: Image
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -189,12 +189,12 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: costmap
       Draw Behind: true
-      Enabled: false
+      Enabled: true
       Name: GlobalCostmap
       Topic: /mybot/move_base/global_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: false
+      Value: true
     - Alpha: 0.5
       Class: rviz/Map
       Color Scheme: costmap
@@ -268,7 +268,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.07000000029802322
       Head Radius: 0.029999999329447746
-      Name: PoseArray
+      Name: AMCL particles
       Shaft Length: 0.23000000417232513
       Shaft Radius: 0.009999999776482582
       Shape: Arrow (Flat)
@@ -313,25 +313,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.0653791427612305
+      Distance: 13.060688972473145
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.3240785002708435
-        Y: -1.7748702764511108
-        Z: -0.8642784953117371
+        X: -2.0178651809692383
+        Y: -2.6756484508514404
+        Z: -0.3131985664367676
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.665398359298706
+      Pitch: 0.6203981041908264
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.5654021501541138
+      Yaw: 1.6904022693634033
     Saved: ~
 Window Geometry:
   "&Displays":

@@ -12,8 +12,8 @@
       <wheelSeparation>0.4</wheelSeparation>
       <wheelDiameter>0.1</wheelDiameter>
       <torque>20</torque>
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
+      <commandTopic>/mybot/cmd_vel</commandTopic>
+      <odometryTopic>/mybot/odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometrySource>1</odometrySource>
 

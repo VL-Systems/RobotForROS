@@ -1,4 +1,4 @@
-transform_tolerance: 1.5  # 0.2
+transform_tolerance: 0.5
 
 always_send_full_costmap: true
 
