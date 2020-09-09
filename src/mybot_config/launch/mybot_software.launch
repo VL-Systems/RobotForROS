@@ -51,8 +51,13 @@
         <param name="odom_frame_id" value="odom"/>
         <param name="resample_interval" value="1"/>
         <param name="transform_tolerance" value="0.1"/>
-        <param name="recovery_alpha_slow" value="0.14"/>
-        <param name="recovery_alpha_fast" value="0.64"/>
+        <param name="recovery_alpha_slow" value="0.07"/>
+        <param name="recovery_alpha_fast" value="0.20"/>
+        
+        <param name="initial_cov_xx" value="1"/>
+        <param name="initial_cov_yy" value="1"/>
+        <param name="initial_cov_aa" value="9"/>
+        
         
         <param name="use_map_topic" value="true"/>
         <param name="base_frame_id" value="chassis"/>
