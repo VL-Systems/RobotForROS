@@ -7,20 +7,22 @@
         GMAPPING
     -->
     <arg name="map" default="creech"/>
+    <arg name="aruco_reacher" default="simple"/>
     
+    <!-- PERCEPTION PART -->
     
-    <node name="aruco_detect" pkg="aruco_detect" type="aruco_detect" output="screen">        
+    <node name="aruco_detect" pkg="aruco_detect" type="aruco_detect" output="log">        
         <param name="dictionary" value="10"/>
-        <param name="fiducial_len" value="0.4"/>
+        <param name="fiducial_len" value="0.3"/>
         <param name="publish_images" value="true"/>        
         <param name="do_pose_estimation" value="true"/>                
                 
         <remap from="/camera" to="camera1/image_raw"/>
         <remap from="/camera_info" to="camera1/camera_info"/>    
         
-        <!--<remap from="/fiducial_vertices" to="fiducial_vertices"/>
-        <remap from="/fiducial_transforms" to="fiducial_transforms_obst_and_orients"/>
-        <remap from="/fiducial_images" to="fiducial_images"/>-->
+        <remap from="/fiducial_vertices" to="fiducial_vertices"/>
+        <remap from="/fiducial_transforms" to="fiducial_transforms"/>
+        <remap from="/fiducial_images" to="fiducial_images"/>
     </node>
     
     <!-- LOCALIZATION PART -->
@@ -45,7 +47,7 @@
         <param name="gui_publish_rate" value="10.0"/>
         <param name="laser_max_beams" value="30"/>
         <param name="min_particles" value="500"/>
-        <param name="max_particles" value="5000"/>
+        <param name="max_particles" value="1000"/>
         <param name="kld_err" value="0.05"/>
         <param name="kld_z" value="0.99"/>
         <param name="odom_alpha1" value="0.2"/>
@@ -92,7 +94,8 @@
          
     <!-- navigation -->
     <include file="$(find mybot_2dnav)/launch/mybot_move_base.launch"> 
-        <arg name="robot" value="$(arg robot)"/>             
+        <arg name="robot" value="$(arg robot)"/>           
+        <arg name="aruco_reacher" value="$(arg aruco_reacher)"/>
     </include>
     
 </launch>

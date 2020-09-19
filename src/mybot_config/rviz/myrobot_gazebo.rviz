@@ -64,6 +64,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        camera_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         chassis:
           Alpha: 1
           Show Axes: false
@@ -122,7 +126,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /mybot/camera1/image_raw
+      Image Topic: /mybot/fiducial_images
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -138,6 +142,8 @@ Visualization Manager:
       Frames:
         All Enabled: true
         camera:
+          Value: true
+        camera_optical:
           Value: true
         chassis:
           Value: true
@@ -161,7 +167,8 @@ Visualization Manager:
           odom:
             chassis:
               camera:
-                {}
+                camera_optical:
+                  {}
               hokuyo:
                 {}
               left_wheel:
@@ -179,7 +186,7 @@ Visualization Manager:
       Head Length: 0.30000001192092896
       Head Radius: 0.10000000149011612
       Name: NavGoal
-      Shaft Length: 1
+      Shaft Length: 0.30000001192092896
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
       Topic: /mybot/move_base/current_goal
@@ -278,12 +285,27 @@ Visualization Manager:
     - Alpha: 0.699999988079071
       Class: rviz/Map
       Color Scheme: map
-      Draw Behind: false
+      Draw Behind: true
       Enabled: true
       Name: Map
       Topic: /mybot/map
       Unreliable: false
       Use Timestamp: false
+      Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz/Pose
+      Color: 0; 0; 0
+      Enabled: true
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: MoveBaseSimple
+      Shaft Length: 0.30000001192092896
+      Shaft Radius: 0.05000000074505806
+      Shape: Arrow
+      Topic: /mybot/move_base_simple/goal
+      Unreliable: false
       Value: true
   Enabled: true
   Global Options:
@@ -313,25 +335,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 13.060688972473145
+      Distance: 8.353416442871094
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -2.0178651809692383
-        Y: -2.6756484508514404
-        Z: -0.3131985664367676
+        X: -0.491879403591156
+        Y: -1.5910801887512207
+        Z: -0.3976626992225647
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6203981041908264
+      Pitch: 0.5403979420661926
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.6904022693634033
+      Yaw: 2.0454018115997314
     Saved: ~
 Window Geometry:
   "&Displays":

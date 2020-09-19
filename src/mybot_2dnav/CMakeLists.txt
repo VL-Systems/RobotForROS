@@ -9,6 +9,7 @@ project(mybot_2dnav)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   move_base  
+  rospy
 )
 
 ## System dependencies are found with CMake's conventions

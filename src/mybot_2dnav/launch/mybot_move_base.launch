@@ -1,6 +1,13 @@
 <launch>
     <arg name="robot" default="mybot"/>
+    <arg name="aruco_reacher" default="simple"/>
+    <!-- 
+        simple - with topic interface
+        action - with action interface
+        <any other> - disable aruco reaching
+    -->
 
+    <!-- THE MOVE BASE ITSELF -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
         
         <rosparam file="$(find mybot_2dnav)/config/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
@@ -15,6 +22,19 @@
         
         <remap from="cmd_vel" to="cmd_vel"/>
         <remap from="odom" to="odom"/>
- </node>
+    </node>
+    
+    <!-- Aruco marker reachers -->
+    <node if="$(eval aruco_reacher == 'simple')" pkg="mybot_2dnav" name="aruco_reacher_simple" type="aruco_reacher_simple.py" output="screen">
+        
+        <param name="dr_threshold" value="0.25"/>
+    </node>
+        
+    <node if="$(eval aruco_reacher == 'action')" pkg="mybot_2dnav" name="aruco_reacher_action" type="aruco_reacher_action.py" output="screen">
+        
+        <param name="dr_threshold" value="0.25"/>
+        <param name="dyaw_threshold" value="0.1"/>
+    </node>
+    
 
 </launch> 
