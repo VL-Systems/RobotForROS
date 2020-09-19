@@ -59,6 +59,10 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         camera:
           Alpha: 1
           Show Axes: false
@@ -150,6 +154,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        base_link:
+          Value: true
         camera:
           Value: true
         camera_optical:
@@ -178,19 +184,20 @@ Visualization Manager:
       Tree:
         map:
           odom:
-            chassis:
-              camera:
-                camera_optical:
+            base_link:
+              chassis:
+                camera:
+                  camera_optical:
+                    {}
+                depth_camera:
+                  depth_camera_optical:
+                    {}
+                hokuyo:
                   {}
-              depth_camera:
-                depth_camera_optical:
+                left_wheel:
                   {}
-              hokuyo:
-                {}
-              left_wheel:
-                {}
-              right_wheel:
-                {}
+                right_wheel:
+                  {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -222,12 +229,12 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: costmap
       Draw Behind: false
-      Enabled: false
+      Enabled: true
       Name: LocalCostmap
       Topic: /mybot/move_base/local_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: false
+      Value: true
     - Alpha: 0.699999988079071
       Class: rviz/Map
       Color Scheme: map
@@ -381,25 +388,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 9.45030689239502
+      Distance: 6.2221784591674805
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.9995099902153015
-        Y: 0.4857116639614105
-        Z: 0.7405230402946472
+        X: -3.982802391052246
+        Y: 0.17236988246440887
+        Z: 2.862123727798462
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8203977942466736
+      Pitch: 1.2953978776931763
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.658588409423828
+      Yaw: 1.4004039764404297
     Saved: ~
 Window Geometry:
   "&Displays":
