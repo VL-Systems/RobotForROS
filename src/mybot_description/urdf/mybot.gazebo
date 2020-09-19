@@ -17,7 +17,7 @@
       <odometryFrame>odom</odometryFrame>
       <odometrySource>1</odometrySource>
 
-      <robotBaseFrame>chassis</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo>
 

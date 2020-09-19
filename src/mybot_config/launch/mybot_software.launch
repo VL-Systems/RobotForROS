@@ -79,13 +79,13 @@
         
         
         <param name="use_map_topic" value="true"/>
-        <param name="base_frame_id" value="chassis"/>
+        <param name="base_frame_id" value="base_link"/>
         <remap from="scan" to="laser/scan"/>        
     </node>            
     
     <!-- gmapping -->
     <node if="$(eval localization_type == 'GMAPPING')" pkg="gmapping" type="slam_gmapping" name="gmapping" output="screen">                
-        <param name="base_frame" value="chassis"/>
+        <param name="base_frame" value="base_link"/>
         <param name="maxRange" value="29"/>
         <param name="maxRange" value="30"/>
         
