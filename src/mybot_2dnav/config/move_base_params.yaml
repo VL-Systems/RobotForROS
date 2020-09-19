@@ -8,7 +8,7 @@ recovery_behaviors: #[]
     type: clear_costmap_recovery/ClearCostmapRecovery
   
 controller_frequency: 20.
-planner_frequency: 0.  # 0. is only plan on a new goal or when local planner fails
+planner_frequency: 1.  # 0. is only plan on a new goal or when local planner fails
 planner_patience: 5.
 controller_patience: 15.
 recovery_behavior_enables: true
@@ -26,7 +26,7 @@ GlobalPlanner:
   use_quadratic: true
   use_grid_path: false
   old_navfn_behavior: false
-  lethal_cost: 190 #253 # how far from obstacle
+  lethal_cost: 220 #253 # how far from obstacle
   neutral_cost: 66 #40
   cost_factor:  1.55 #3
   publish_potential: True

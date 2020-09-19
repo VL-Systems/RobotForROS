@@ -13,14 +13,12 @@ static_layer:
   use_maximum: true
   trinary_costmap: true
 
-
 inflation_layer:
   inflation_radius: 30.  # the bigger the better, defines where the gradient is
   cost_scaling_factor: 0.9  # 0.5 the bigger the steeper the gradient is
 
 laser_obstacle_layer:
-#obstacle_layer:
-    observation_sources: laser_scan #point_cloud_kinect
+    observation_sources: laser_scan
     track_unknown_space: true
     footprint_clearing_enabled: true
     combination_method: 1  # 0 - overwrite, 1 - max, 99 - nothing
@@ -33,18 +31,7 @@ laser_obstacle_layer:
         clearing: true
         obstacle_range: 10.
         raytrace_range: 12.
-        inf_is_valid: true
-        
-    #point_cloud_kinect:
-        #sensor_frame: depth_camera_optical
-        #data_type: PointCloud2
-        #topic: /mybot/depth_camera/depth/points
-        #marking: true
-        #clearing: false
-        #min_obstacle_height: 0.1
-        #max_obstacle_height: 1.0
-        #obstacle_range: 4.
-        #raytrace_range: 5.
+        inf_is_valid: true        
                 
 depth_obstacle_layer:
     observation_sources: point_cloud_kinect        
@@ -57,8 +44,8 @@ depth_obstacle_layer:
         data_type: PointCloud2
         topic: /mybot/depth_camera/depth/points
         marking: true
-        clearing: false
+        clearing: true
         min_obstacle_height: 0.1
-        max_obstacle_height: 1.0
+        max_obstacle_height: 0.8
         obstacle_range: 4.
         raytrace_range: 5.
