@@ -73,6 +73,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        depth_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        depth_camera_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         hokuyo:
           Alpha: 1
           Show Axes: false
@@ -147,6 +156,10 @@ Visualization Manager:
           Value: true
         chassis:
           Value: true
+        depth_camera:
+          Value: true
+        depth_camera_optical:
+          Value: true
         hokuyo:
           Value: true
         left_wheel:
@@ -168,6 +181,9 @@ Visualization Manager:
             chassis:
               camera:
                 camera_optical:
+                  {}
+              depth_camera:
+                depth_camera_optical:
                   {}
               hokuyo:
                 {}
@@ -209,6 +225,16 @@ Visualization Manager:
       Enabled: true
       Name: LocalCostmap
       Topic: /mybot/move_base/local_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: true
+      Enabled: true
+      Name: Map
+      Topic: /mybot/map
       Unreliable: false
       Use Timestamp: false
       Value: true
@@ -282,16 +308,6 @@ Visualization Manager:
       Topic: /mybot/particlecloud
       Unreliable: false
       Value: true
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: true
-      Enabled: true
-      Name: Map
-      Topic: /mybot/map
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.10000000149011612
@@ -306,6 +322,36 @@ Visualization Manager:
       Shape: Arrow
       Topic: /mybot/move_base_simple/goal
       Unreliable: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: DepthCameraCloud
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /mybot/depth_camera/depth/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
@@ -335,25 +381,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 8.353416442871094
+      Distance: 3.588482141494751
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.491879403591156
-        Y: -1.5910801887512207
-        Z: -0.3976626992225647
+        X: 0.2533750534057617
+        Y: 0.4608423709869385
+        Z: 1.2912768125534058
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5403979420661926
+      Pitch: 0.8203977942466736
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.0454018115997314
+      Yaw: 5.658588409423828
     Saved: ~
 Window Geometry:
   "&Displays":

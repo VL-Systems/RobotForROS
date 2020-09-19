@@ -19,6 +19,7 @@
     <!-- 
         simple - with topic interface
         action - with action interface
+        search - rotate and reach marker
         <any other> - disable aruco reaching
     -->
     
