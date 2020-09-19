@@ -54,6 +54,8 @@
   <build_export_depend>move_base</build_export_depend>
   
   <exec_depend>move_base</exec_depend>  
+  
+  <depend>rospy</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

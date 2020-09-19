@@ -1,8 +1,8 @@
 transform_tolerance: 0.5
 
-always_send_full_costmap: true
+always_send_full_costmap: false
 
-footprint: [[0.2, 0.2], [0.2, -0.2], [-0.2, -0.2], [-0.2, 0.2]]
+footprint: [[0.2, 0.2], [0.2, -0.2], [-0.25, -0.2], [-0.25, 0.2]]
 
 static_layer:
   unknown_cost_value: -1

@@ -4,17 +4,24 @@
     <!-- global params-->
     <arg name="robot" default="mybot"/>
     
-    <arg name="localization_type" default="FIXED_ODOM"/>
+    <arg name="localization_type" default="AMCL"/>
     <!-- Possible variants
         FIXED_ODOM   
         AMCL
         HECTOR
     -->
-    <arg name="map" default="creech"/>
+    <arg name="map" default="my_creech"/>
     <!-- Possible maps 
         creech
         my_creech
     -->
+    <arg name="aruco_reacher" default="none"/>
+    <!-- 
+        simple - with topic interface
+        action - with action interface
+        <any other> - disable aruco reaching
+    -->
+    
   
     <!-- URDF description -->
     <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/>
@@ -39,6 +46,7 @@
             <arg name="robot" value="$(arg robot)"/>
             <arg name="localization_type" value="$(arg localization_type)"/>
             <arg name="map" value="$(arg map)"/>
+            <arg name="aruco_reacher" value="$(arg aruco_reacher)"/>
         </include>
     
     </group>
