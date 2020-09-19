@@ -4,9 +4,16 @@
     <!-- 
         simple - with topic interface
         action - with action interface
+        search - rotate and reach marker
         <any other> - disable aruco reaching
     -->
 
+    <!-- Rotation action server -->
+    <node pkg="mybot_2dnav" type="rotation_action_server.py" name="rotation_action_server" output="screen">
+        <param name="default_speed" value="0.6"/>
+        
+    </node>
+    
     <!-- THE MOVE BASE ITSELF -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
         
@@ -34,6 +41,14 @@
         
         <param name="dr_threshold" value="0.25"/>
         <param name="dyaw_threshold" value="0.1"/>
+    </node>
+    
+    <node if="$(eval aruco_reacher == 'search')" pkg="mybot_2dnav" name="aruco_searcher" type="aruco_searcher.py" output="screen">
+        
+        <param name="dr_threshold" value="0.25"/>
+        <param name="dyaw_threshold" value="0.1"/>
+        <param name="angle_inc" value="0.1"/>
+        
     </node>
     
 
