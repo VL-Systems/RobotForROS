@@ -26,9 +26,9 @@ GlobalPlanner:
   use_quadratic: true
   use_grid_path: false
   old_navfn_behavior: false
-  lethal_cost: 253 #253 # how far from obstacle
+  lethal_cost: 190 #253 # how far from obstacle
   neutral_cost: 66 #40
-  cost_factor:  0.55 #3
+  cost_factor:  1.55 #3
   publish_potential: True
   orientation_mode: 0.
   orientation_window_size: 1

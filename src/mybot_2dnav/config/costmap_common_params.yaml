@@ -19,7 +19,8 @@ inflation_layer:
   cost_scaling_factor: 0.9  # 0.5 the bigger the steeper the gradient is
 
 laser_obstacle_layer:
-    observation_sources: laser_scan
+#obstacle_layer:
+    observation_sources: laser_scan #point_cloud_kinect
     track_unknown_space: true
     footprint_clearing_enabled: true
     combination_method: 1  # 0 - overwrite, 1 - max, 99 - nothing
