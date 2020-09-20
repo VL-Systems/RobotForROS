@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     
+    <!-- 
+        TASK 1
+        Дано: робот находится в лабиринте
+        
+        Требуется: написать узел, который может првести робота к одному из двух выходов из лабиринта, причем выход должен задаваться из вне пользователем (например через сервис), если в процессе испольнения задачи приходит новая задача, то прервать выполнение текущей и инициировать новую
+        
+        Можно использовать: все что мы прошли до этого момента
+        
+    -->
+    
+    
     <!-- global params-->
     <arg name="robot" default="mybot"/>
     
-    <arg name="localization_type" default="AMCL"/>
+    <arg name="localization_type" default="FIXED_ODOM"/>
     <!-- Possible variants
         FIXED_ODOM   
         AMCL
         HECTOR
     -->
-    <arg name="map" default="my_creech"/>
+    <arg name="map" default="none"/>
     <!-- Possible maps 
         creech
         my_creech
@@ -40,10 +51,11 @@
     
     <!-- run gazebo and spawn mybot -->
     <include file="$(find mybot_gazebo)/launch/mybot_world.launch">
-        <arg name="world" value="mybot"/>
-        <arg name="X" value="-1"/>
-        <arg name="Y" value="-1"/>
-        <arg name="YAW" value="1"/>
+        <arg name="world" value="simple_maze"/>
+        <arg name="X" value="0.0"/>
+        <arg name="Y" value="0.0"/>
+        <arg name="YAW" value="-1.57"/>
+        
     </include>
     
     <group ns="$(arg robot)">
