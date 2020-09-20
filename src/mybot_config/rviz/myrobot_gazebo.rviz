@@ -130,7 +130,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.05000000074505806
+      Size (m): 0.02500000037252903
       Style: Flat Squares
       Topic: /mybot/laser/scan
       Unreliable: false
@@ -333,14 +333,14 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
+        Max Value: 1.0753074884414673
+        Min Value: 0.000415608286857605
         Value: true
       Axis: Z
       Channel Name: intensity
       Class: rviz/PointCloud2
       Color: 255; 255; 255
-      Color Transformer: RGB8
+      Color Transformer: AxisColor
       Decay Time: 0
       Enabled: true
       Invert Rainbow: false
@@ -350,11 +350,11 @@ Visualization Manager:
       Min Intensity: 0
       Name: DepthCameraCloud
       Position Transformer: XYZ
-      Queue Size: 10
+      Queue Size: 1
       Selectable: true
       Size (Pixels): 3
       Size (m): 0.009999999776482582
-      Style: Flat Squares
+      Style: Squares
       Topic: /mybot/depth_camera/depth/points
       Unreliable: false
       Use Fixed Frame: true
@@ -388,25 +388,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.2221784591674805
+      Distance: 1.4540144205093384
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -3.982802391052246
-        Y: 0.17236988246440887
-        Z: 2.862123727798462
+        X: -0.6135702729225159
+        Y: -0.17145328223705292
+        Z: 0.4199208617210388
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.2953978776931763
+      Pitch: 0.5803992748260498
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.4004039764404297
+      Yaw: 5.425387382507324
     Saved: ~
 Window Geometry:
   "&Displays":
