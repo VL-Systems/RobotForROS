@@ -59,6 +59,10 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         camera:
           Alpha: 1
           Show Axes: false
@@ -73,6 +77,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        depth_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        depth_camera_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         hokuyo:
           Alpha: 1
           Show Axes: false
@@ -141,11 +154,17 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        base_link:
+          Value: true
         camera:
           Value: true
         camera_optical:
           Value: true
         chassis:
+          Value: true
+        depth_camera:
+          Value: true
+        depth_camera_optical:
           Value: true
         hokuyo:
           Value: true
@@ -165,16 +184,20 @@ Visualization Manager:
       Tree:
         map:
           odom:
-            chassis:
-              camera:
-                camera_optical:
+            base_link:
+              chassis:
+                camera:
+                  camera_optical:
+                    {}
+                depth_camera:
+                  depth_camera_optical:
+                    {}
+                hokuyo:
                   {}
-              hokuyo:
-                {}
-              left_wheel:
-                {}
-              right_wheel:
-                {}
+                left_wheel:
+                  {}
+                right_wheel:
+                  {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -209,6 +232,16 @@ Visualization Manager:
       Enabled: true
       Name: LocalCostmap
       Topic: /mybot/move_base/local_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: true
+      Enabled: true
+      Name: Map
+      Topic: /mybot/map
       Unreliable: false
       Use Timestamp: false
       Value: true
@@ -282,16 +315,6 @@ Visualization Manager:
       Topic: /mybot/particlecloud
       Unreliable: false
       Value: true
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: true
-      Enabled: true
-      Name: Map
-      Topic: /mybot/map
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.10000000149011612
@@ -306,6 +329,36 @@ Visualization Manager:
       Shape: Arrow
       Topic: /mybot/move_base_simple/goal
       Unreliable: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: DepthCameraCloud
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /mybot/depth_camera/depth/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
@@ -335,25 +388,42 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
+<<<<<<< HEAD
       Distance: 6.365084171295166
+=======
+      Distance: 6.2221784591674805
+>>>>>>> caad1ef3a6570be97c43d15022b40b07c9312fce
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
+<<<<<<< HEAD
         X: 0.8777398467063904
         Y: -2.6104390621185303
         Z: -0.25717487931251526
+=======
+        X: -3.982802391052246
+        Y: 0.17236988246440887
+        Z: 2.862123727798462
+>>>>>>> caad1ef3a6570be97c43d15022b40b07c9312fce
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
+<<<<<<< HEAD
       Pitch: 0.8153978586196899
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
       Yaw: 3.1854021549224854
+=======
+      Pitch: 1.2953978776931763
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 1.4004039764404297
+>>>>>>> caad1ef3a6570be97c43d15022b40b07c9312fce
     Saved: ~
 Window Geometry:
   Displays:

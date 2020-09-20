@@ -9,6 +9,15 @@
   <xacro:include filename="$(find mybot_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find mybot_description)/urdf/macros.xacro" />
 
+  <link name='base_link'>
+    </link>
+    
+    <joint name="base_link_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="-0.1 0 0.1" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="chassis"/>
+  </joint>
 
   <link name='chassis'>
     <pose>0 0 0.1 0 0 0</pose>
@@ -182,7 +191,57 @@
     <parent link="chassis"/>
     <child link="hokuyo"/>
   </joint>
+  
+  <link name="depth_camera">
+      <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+      </geometry>
+    </collision>
 
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+      </geometry>
+      <material name="blue"/>
+      
+      <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    </visual>
+      
+  </link>
+  
+  <joint name="depth_camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz=".2 0 0" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="depth_camera"/>
+  </joint>
+
+  <link name="depth_camera_optical">
+  </link>
+  
+  <joint name="depth_camera_optical_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+    <parent link="depth_camera"/>
+    <child link="depth_camera_optical"/>
+  </joint>
+  
   <!-- Hokuyo Laser -->
   <link name="hokuyo">
     <collision>

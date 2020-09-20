@@ -79,13 +79,13 @@
         
         
         <param name="use_map_topic" value="true"/>
-        <param name="base_frame_id" value="chassis"/>
+        <param name="base_frame_id" value="base_link"/>
         <remap from="scan" to="laser/scan"/>        
     </node>            
     
     <!-- gmapping -->
     <node if="$(eval localization_type == 'GMAPPING')" pkg="gmapping" type="slam_gmapping" name="gmapping" output="screen">                
-        <param name="base_frame" value="chassis"/>
+        <param name="base_frame" value="base_link"/>
         <param name="maxRange" value="29"/>
         <param name="maxRange" value="30"/>
         
@@ -93,7 +93,7 @@
     </node>
          
     <!-- navigation -->
-    <include file="$(find mybot_2dnav)/launch/mybot_move_base.launch"> 
+    <include file="$(find mybot_2dnav)/launch/mybot_moving.launch"> 
         <arg name="robot" value="$(arg robot)"/>           
         <arg name="aruco_reacher" value="$(arg aruco_reacher)"/>
     </include>

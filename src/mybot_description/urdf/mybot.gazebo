@@ -17,7 +17,7 @@
       <odometryFrame>odom</odometryFrame>
       <odometrySource>1</odometrySource>
 
-      <robotBaseFrame>chassis</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo>
 
@@ -66,6 +66,49 @@
         <distortionT2>0.0</distortionT2>
       </plugin>
     </sensor>
+  </gazebo>
+  
+  <!-- depth camera -->
+  <gazebo reference="depth_camera">
+    <sensor name="kinect" type="depth">
+        <update_rate>10</update_rate>
+        <camera>
+        <horizontal_fov>1.047198</horizontal_fov>
+        <image>
+            <width>320</width>
+            <height>240</height>
+            <format>B8G8R8</format>
+        </image>
+        <clip>
+            <near>0.05</near>
+            <!--<far>8</far>-->
+        </clip>
+        </camera>
+        <plugin name="kinect_controller" filename="libgazebo_ros_openni_kinect.so">
+            <baseline>0.2</baseline>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10</updateRate>
+            <cameraName>/mybot/depth_camera</cameraName>
+            <frameName>/depth_camera_optical</frameName>
+            <imageTopicName>rgb/image_raw</imageTopicName>
+            <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>depth/points</pointCloudTopicName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+        </plugin>
+        </sensor>
   </gazebo>
 
   <!-- hokuyo -->
