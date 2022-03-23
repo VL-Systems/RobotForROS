@@ -38,7 +38,6 @@ DWAPlannerROS:
   use_dwa: true
   global_frame_id: odom
 
-<<<<<<< HEAD
   max_vel_trans: 0.16 #0.1 /0.16
   min_vel_trans: 0.0
   max_vel_x: 1.7 #0.2 /1.7  
@@ -48,7 +47,7 @@ DWAPlannerROS:
   max_vel_theta: 1.6  # 0.5 /1.6 
   min_vel_theta: 0.5  # 0.5    /0.5
   acc_lim_x: 1.2 #1.2
-=======
+
   max_vel_trans: 0.1
   min_vel_trans: 0.0
   max_vel_x: 0.2
@@ -58,7 +57,7 @@ DWAPlannerROS:
   max_vel_theta: 2.0  # 0.5  
   min_vel_theta: 0.4  # 0.5    
   acc_lim_x: 1.2
->>>>>>> caad1ef3a6570be97c43d15022b40b07c9312fce
+
   acc_lim_y: 0.
   acc_lim_theta: 15.0   # 15
   acc_lim_trans: 0.5    # 0.5

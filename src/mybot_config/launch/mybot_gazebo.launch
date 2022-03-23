@@ -10,7 +10,7 @@
         AMCL
         HECTOR
     -->
-    <arg name="map" default="my_creech"/>
+    <arg name="map" default="two_level"/>
     <!-- Possible maps 
         creech
         my_creech
@@ -23,9 +23,10 @@
         <any other> - disable aruco reaching
     -->
     
+    
   
     <!-- URDF description -->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/>
+    <param name="robot_description" command="$(find xacro)/xacro '$(find mybot_description)/urdf/mybot.xacro'"/>
     
     
     <!-- TF stuff -->
@@ -35,7 +36,7 @@
     </node>
 
         <!-- Combine joint values -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
         
     
     <!-- run gazebo and spawn mybot -->

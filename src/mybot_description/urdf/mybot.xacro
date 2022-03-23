@@ -227,7 +227,7 @@
   
   <joint name="depth_camera_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz=".2 0 0" rpy="0 0 0"/>
+    <origin xyz="0.2 0 0.3" rpy="-1.57 0.5 0"/>
     <parent link="chassis"/>
     <child link="depth_camera"/>
   </joint>

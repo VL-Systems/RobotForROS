@@ -34,18 +34,39 @@ laser_obstacle_layer:
         inf_is_valid: true        
                 
 depth_obstacle_layer:
-    observation_sources: point_cloud_kinect        
-    track_unknown_space: false
+    observation_sources: point_cloud_kinect   point_clear     
+    track_unknown_space: true
     footprint_clearing_enabled: true
     combination_method: 1  # 0 - overwrite, 1 - max, 99 - nothing
         
     point_cloud_kinect:
         sensor_frame: depth_camera_optical
         data_type: PointCloud2
-        topic: /mybot/depth_camera/depth/points
+        topic: /mybot/filtered_obstacles
         marking: true
-        clearing: true
+        clearing: false
         min_obstacle_height: 0.1
-        max_obstacle_height: 0.8
+        max_obstacle_height: 0.6
         obstacle_range: 4.
         raytrace_range: 5.
+        expected_update_rate: 10.0   # default 0, if not updating at this rate at least, remove from buffer
+        observation_persistence: 0.0 # default 0, use all measurements taken during now-value, 0=latest
+        inf_is_valid: true           # default false, for laser scans
+        voxel_filter: true           # default off, apply voxel filter to sensor, recommend on
+        clear_after_reading: true   # default false, clear the buffer after the layer gets readings from it
+
+    point_clear:
+        enabled: false               #default true, can be toggled on/off with associated service call
+        data_type: PointCloud2
+        topic: /mybot/filtered_ground_plane
+        marking: false
+        clearing: true
+        max_z: 2.0                  # default 0, meters
+        min_z: -1.01                  # default 10, meters
+        #vertical_fov_angle: 0.523   # default 0.7, radians. For 3D lidars it's the symmetric FOV about the planar axis.
+        #vertical_fov_padding: 0.05    # 3D Lidar only. Default 0, in meters
+        #horizontal_fov_angle: 6.29  # 3D lidar scanners like the VLP16 have 360 deg horizontal FOV.
+        #decay_acceleration: 5.0     # default 0, 1/s^2.
+        model_type: 0               # default 0, model type for frustum. 0=depth camera, 1=3d lidar like VLP16 or similar
+
+

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-  <arg name="world" default="mybot"/> 
+  <arg name="world" default="two_level"/> 
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="X" default="0"/>
-  <arg name="Y" default="0"/>
+  <arg name="X" default="-50"/>
+  <arg name="Y" default="-50"/>
+  <arg name="Z" default="3"/>
   <arg name="YAW" default="0"/>
   
   
@@ -25,6 +26,6 @@
   
 
   <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-   args="-urdf -param robot_description -model mybot -x $(arg X) -y $(arg Y) -Y $(arg YAW)" />
+   args="-urdf -param robot_description -model mybot -x $(arg X) -y $(arg Y) -z $(arg Z) -Y $(arg YAW)" />
 
 </launch>

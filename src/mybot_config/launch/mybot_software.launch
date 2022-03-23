@@ -25,6 +25,11 @@
         <remap from="/fiducial_images" to="fiducial_images"/>
     </node>
     
+    <node pkg="jyMini_config" type="ground" name="ground_segmentation" output="screen">
+        <remap from="input" to="/mybot/depth_camera/depth/points"/>
+    </node>
+
+
     <!-- LOCALIZATION PART -->
     
     <!-- fixed odom -->
@@ -38,6 +43,9 @@
     
     <node if="$(eval localization_type == 'AMCL' and map == 'my_creech')" name="map_server" pkg="map_server" type="map_server" args="$(find mybot_2dnav)/maps/my_creech.yaml"/>
     
+    <node if="$(eval localization_type == 'AMCL' and map == 'two_level')" name="map_server" pkg="map_server" type="map_server" args="$(find mybot_2dnav)/maps/two_level.yaml"/>
+    
+
     <!--- Run AMCL --> 
     <node if="$(eval localization_type == 'AMCL')" pkg="amcl" type="amcl" name="amcl" output="screen">
         <!-- Publish scans from best pose at a max of 10 Hz -->
